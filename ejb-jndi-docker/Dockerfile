@@ -23,6 +23,6 @@ USER root
 # gdb is for gcore
 COPY --chown=1001:0 config/server.xml /config/server.xml
 COPY --chown=1001:0 config/jvm.options /config/
-COPY --chown=1001:0 apps/jndi.war /config/apps/
+COPY --chown=1001:0 apps/ejb-ear.ear /config/apps/
 
 USER 1001
