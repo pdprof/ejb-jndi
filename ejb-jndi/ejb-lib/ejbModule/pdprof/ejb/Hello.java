@@ -1,30 +1,28 @@
 package pdprof.ejb;
 
-import javax.ejb.Local;
-import javax.ejb.LocalBean;
 import javax.ejb.Remote;
+import javax.ejb.RemoteHome;
 import javax.ejb.Stateless;
-import pdprof.ejb.view.HelloLocal;
 import pdprof.ejb.view.HelloRemote;
+import pdprof.ejb.view.HelloRemoteHome;
 
 /**
  * Session Bean implementation class Hello
  */
-@Stateless
-@Local(HelloLocal.class)
+@Stateless(mappedName = "ejb/Hello")
 @Remote(HelloRemote.class)
-@LocalBean
-public class Hello implements HelloRemote, HelloLocal {
+@RemoteHome(HelloRemoteHome.class)
+public class Hello implements HelloRemote {
 
     /**
      * Default constructor. 
      */
     public Hello() {
-        
+        // TODO Auto-generated constructor stub
     }
     
     public String hello() {
-    	return "Hello !!";
+    	return "Hello!!";
     }
 
 }

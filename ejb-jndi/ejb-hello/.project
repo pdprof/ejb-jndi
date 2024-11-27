@@ -3,6 +3,8 @@
 	<name>ejb-hello</name>
 	<comment></comment>
 	<projects>
+		<project>ejb-lib</project>
+		<project>ejb-lib-client</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

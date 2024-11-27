@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application-client-bnd 
+	xmlns="http://websphere.ibm.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-application-client-bnd_1_0.xsd"
+	version="1.0">
+
+	<ejb-ref name="ejb/Hello" binding-name="corbaname::localhost:2809#ejb/global/ejb-ear/ejb-lib/Hello!pdprof.ejb.view.HelloRemote" />
+	
+</application-client-bnd>

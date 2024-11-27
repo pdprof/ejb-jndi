@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ejb-ear</name>
+	<name>ejb-liberty-ear</name>
 	<comment></comment>
 	<projects>
-		<project>ejb-lib</project>
+		<project>ejb-liberty-client</project>
 		<project>ejb-hello</project>
-		<project>ejb-client</project>
+		<project>ejb-lib</project>
 		<project>jndi</project>
 	</projects>
 	<buildSpec>
