@@ -1,0 +1,14 @@
+user.root=/opt/IBM/WebSphere/AppServer/profiles/AppSrv01
+com.ibm.ssl.alias=DefaultSSLSettings
+com.ibm.ssl.protocol=TLSv1.2
+com.ibm.ssl.trustManager=SunX509
+com.ibm.ssl.keyManager=SunX509
+com.ibm.ssl.contextProvider=SunJSSE
+com.ibm.ssl.keyStoreType=PKCS12
+com.ibm.ssl.keyStoreProvider=SUN
+com.ibm.ssl.keyStore=${user.root}/etc/key.p12
+com.ibm.ssl.keyStorePassword={xor}CDo9Hgw=
+com.ibm.ssl.trustStoreType=PKCS12
+com.ibm.ssl.trustStoreProvider=SUN
+com.ibm.ssl.trustStore=${user.root}/etc/trust.p12
+com.ibm.ssl.trustStorePassword={xor}CDo9Hgw=

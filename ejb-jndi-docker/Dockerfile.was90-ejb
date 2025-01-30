@@ -1,0 +1,21 @@
+FROM ibmcom/websphere-traditional:9.0.5.20
+ENV ENABLE_BASIC_LOGGING=true
+COPY was90/PASSWORD /tmp/PASSWORD
+USER 0
+RUN dnf install -y java-1.8.0
+USER was
+COPY --chown=was:root was90/installApp.py /work/config/installApp.py
+COPY --chown=was:root was90/ejb-ear.ear /work/config/
+RUN /work/configure.sh
+RUN cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/config/cells/DefaultCell01/applications/ejb-ear.ear && \
+      /opt/IBM/WebSphere/AppServer/bin/createEJBStubs.sh ejb-ear.ear && \
+      mkdir -p /tmp/thinclient/unzip && cp /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/config/cells/DefaultCell01/applications/ejb-ear.ear/ejb-ear.ear /tmp/thinclient && \
+      cd /tmp/thinclient/unzip && unzip ../ejb-ear.ear
+COPY --chown=was:root was90/launchToTWAS.sh /tmp/thinclient/
+COPY --chown=was:root was90/launchToLiberty.sh /tmp/thinclient/
+COPY --chown=was:root was90/thinToTWAS.sh /tmp/thinclient/
+COPY --chown=was:root was90/thinToLiberty.sh /tmp/thinclient/
+COPY --chown=was:root was90/thinToLibertyNoIBMJava.sh /tmp/thinclient/
+COPY --chown=was:root was90/ssl.client.props /tmp/thinclient/
+COPY --chown=was:root was90/createEJB.sh /tmp/thinclient/
+

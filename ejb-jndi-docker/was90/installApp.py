@@ -1,0 +1,4 @@
+print "Install ejb-ear.ear ..."
+AdminApp.install('/work/config/ejb-ear.ear', '[ -nopreCompileJSPs -distributeApp -nouseMetaDataFromBinary -appname ejb-ear -createMBeansForResources -noreloadEnabled -nodeployws -validateinstall warn -noprocessEmbeddedConfig -filepermission .*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755 -noallowDispatchRemoteInclude -noallowServiceRemoteInclude -asyncRequestDispatchType DISABLED -nouseAutoLink -noenableClientModule -clientMode isolated -novalidateSchema -MapModulesToServers [[ ejb-lib ejb-lib.jar,META-INF/ejb-jar.xml WebSphere:cell=DefaultCell01,node=DefaultNode01,server=server1 ][ ejb-hello.war ejb-hello.war,WEB-INF/web.xml WebSphere:cell=DefaultCell01,node=DefaultNode01,server=server1 ]] -MapWebModToVH [[ ejb-hello.war ejb-hello.war,WEB-INF/web.xml default_host ]]]' )
+AdminConfig.save()
+

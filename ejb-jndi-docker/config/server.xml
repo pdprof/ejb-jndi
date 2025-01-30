@@ -12,6 +12,17 @@
     <httpAccessLogging id="pdprofAccessLogging" logFormat="%h %u %t &quot;%r&quot; %s %b %{remote}p %D %{JSESSIONID}C %{Set-Cookie}o"/>
     <httpEndpoint accessLoggingRef="pdprofAccessLogging" host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
 
+    <iiopEndpoint id="defaultIiopEndpoint" host="ejb-jndi" iiopPort="2809">
+	    <iiopsOptions iiopsPort="9402" sslRef="defaultSSLConfig"/>
+    </iiopEndpoint>
+    <orb id="defaultOrb">
+	    <serverPolicy.csiv2>
+		    <layers>
+			    <authenticationLayer establishTrustInClient="Never"/>
+		    </layers>
+	    </serverPolicy.csiv2>
+    </orb>
+
     <eventLogging logMode="entryExit" minDuration="1ms"/>
 
     <requestTiming slowRequestThreshold="5s" hungRequestThreshold="10m">
