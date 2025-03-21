@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ `docker network ls | grep pdprof-network | wc -l` == 0 ]; then
 	echo "Create pdprof-network..."
-	docker create network pdprof-network
+	docker network create pdprof-network
 else
 	echo "pdprof-network exists."
 fi
